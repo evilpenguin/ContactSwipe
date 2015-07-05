@@ -3,7 +3,7 @@ export THEOS_DEVICE_PORT = 2222
 export ARCHS = armv7 arm64
 export SDKVERSION = 7.1
 export TARGET = iphone:8.3:4.3
-include theos/makefiles/common.mk
+include $(THEOS)/makefiles/common.mk
 
 TWEAK_NAME = ContactSwipe
 ContactSwipe_FILES = Tweak.xm
