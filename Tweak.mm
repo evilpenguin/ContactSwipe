@@ -13,7 +13,7 @@
 CGFloat const CSAnimationDuration       = 0.1894;
 CGFloat const CSSwipeDistance           = 100.0f;
 static UIImage *CSSwipePhoneImage       = [UIImage imageWithContentsOfFile:@"/Library/Application Support/ContactSwipe/contactswipe_phone@2x.png"];
-NSUInteger CSSwipeViewTag               = 0xAF;
+NSUInteger const CSSwipeViewTag         = 0xAF;
 
 #pragma mark - == ABMemberCell Hooking ==
 
