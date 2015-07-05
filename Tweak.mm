@@ -34,7 +34,7 @@ NSUInteger const CSSwipeViewTag         = 0xAF;
         view.tag = CSSwipeViewTag;
 
         UIImageView *phoneImageView = [[UIImageView alloc] initWithImage:CSSwipePhoneImage];
-        phoneImageView.frame = CGRectMake(view.bounds.size.width - 35.0f, (view.bounds.size.height - 30.0f) / 2.0f, 30.0f, 30.0f);
+        phoneImageView.frame = CGRectMake(view.bounds.size.width - 30.0f, (view.bounds.size.height - 25.0f) / 2.0f, 25.0f, 25.0f);
         [view addSubview:phoneImageView];
         [phoneImageView release];
 
