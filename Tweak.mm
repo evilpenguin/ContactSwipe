@@ -41,6 +41,7 @@ NSUInteger const CSSwipeViewTag         = 0xAF;
         [self insertSubview:view belowSubview:self.contentView];
         [view release];
     }
+    
     self.contentView.backgroundColor = [UIColor whiteColor];
 }
 
