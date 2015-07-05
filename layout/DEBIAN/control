@@ -3,7 +3,7 @@ Name: ContactSwipe
 Depends: mobilesubstrate
 Version: 0.3.0
 Architecture: iphoneos-arm
-Description: A tweak that enables swiping a contact to call (from the phones app)
+Description: A tweak that allows you to make phone calls from the contacts or phone app with just a swipe.
 Maintainer: EvilPenguin (James Emrich)
-Author: EvilPenguin
-Section: Tweaks
+Author: EvilPenguin (James Emrich)
+Section: EvilPenguin
