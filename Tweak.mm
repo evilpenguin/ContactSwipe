@@ -50,13 +50,12 @@ NSUInteger const CSSwipeViewTag         = 0xAF;
 - (void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     [[self viewWithTag:CSSwipeViewTag] setHidden:YES];
     self.highlighted = YES;
-    
-    ((UIScrollView *)self.superview.superview).scrollEnabled = NO;
 }
 
 - (void) touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {  
     // Remove the highlight when we start to drag
     self.highlighted = NO;
+    ((UIScrollView *)self.superview.superview).scrollEnabled = NO;
     [[self viewWithTag:CSSwipeViewTag] setHidden:NO];
 
     // Get our touch information
@@ -76,20 +75,24 @@ NSUInteger const CSSwipeViewTag         = 0xAF;
 - (void) touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
     self.highlighted = NO;
     ((UIScrollView *)self.superview.superview).scrollEnabled = YES;
+    
+    UIView *csView = [self viewWithTag:CSSwipeViewTag];
+    if (csView.hidden) {
+        // Handle calling the delegate to show the contacts view
+        if (self.contentView.frame.origin.x == 0.0f) {
+            csView.hidden = YES;
 
-    // Handle calling the delegate to show the contacts view
-    if (self.contentView.frame.origin.x == 0.0f) {
-        [[self viewWithTag:CSSwipeViewTag] setHidden:YES];
-
-        UITableView *tableView = [self _tableView];
-        if (tableView != nil && tableView.delegate != nil) {
-            [tableView.delegate tableView:tableView didSelectRowAtIndexPath:[tableView indexPathForCell:self]];
-        }   
+            UITableView *tableView = [self _tableView];
+            if (tableView != nil && tableView.delegate != nil) {
+                [tableView.delegate tableView:tableView didSelectRowAtIndexPath:[tableView indexPathForCell:self]];
+            }   
+        }
     }
-
-    // Animate cell back, and decide if we make the call or not
-    BOOL callContact = (self.contentView.frame.origin.x >= CSSwipeDistance);
-    [self animateCellBackWithCall:callContact];
+    else {
+        // Animate cell back, and decide if we make the call or not
+        BOOL callContact = (self.contentView.frame.origin.x >= CSSwipeDistance);
+        [self animateCellBackWithCall:callContact];
+    }
 
     %orig;
 }
