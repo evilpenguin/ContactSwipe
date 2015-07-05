@@ -28,18 +28,19 @@ NSUInteger const CSSwipeViewTag         = 0xAF;
     %orig;
    
     // Add our ContactSwipe views below the `contentView` :)
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, CSSwipeDistance, self.bounds.size.height - 1.0f)];
-    view.backgroundColor = [UIColor colorWithRed:0.70f green:0.70f blue:0.70f alpha:1.0f];
-    view.tag = CSSwipeViewTag;
+    if ([self viewWithTag:CSSwipeViewTag] == nil) {
+        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, CSSwipeDistance, self.bounds.size.height - 1.0f)];
+        view.backgroundColor = [UIColor colorWithRed:0.70f green:0.70f blue:0.70f alpha:1.0f];
+        view.tag = CSSwipeViewTag;
 
-    UIImageView *phoneImageView = [[UIImageView alloc] initWithImage:CSSwipePhoneImage];
-    phoneImageView.frame = CGRectMake(view.bounds.size.width - 35.0f, (view.bounds.size.height - 30.0f) / 2.0f, 30.0f, 30.0f);
-    [view addSubview:phoneImageView];
-    [phoneImageView release];
-    
-    [self insertSubview:view belowSubview:self.contentView];
-    [view release];
+        UIImageView *phoneImageView = [[UIImageView alloc] initWithImage:CSSwipePhoneImage];
+        phoneImageView.frame = CGRectMake(view.bounds.size.width - 35.0f, (view.bounds.size.height - 30.0f) / 2.0f, 30.0f, 30.0f);
+        [view addSubview:phoneImageView];
+        [phoneImageView release];
 
+        [self insertSubview:view belowSubview:self.contentView];
+        [view release];
+    }
     self.contentView.backgroundColor = [UIColor whiteColor];
 }
 
