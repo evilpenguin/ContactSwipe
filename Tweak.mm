@@ -106,7 +106,7 @@ NSUInteger CSSwipeViewTag               = 0xAF;
 - (void) callPerson {
     if (self.person != NULL && self.person.record != nil) {
         ABMultiValueRef phones = ABRecordCopyValue(self.person.record, kABPersonPhoneProperty);
-        if (phones != NULL && CFArrayGetCount((CFArrayRef)phones) > 0) {
+        if (phones != NULL && ABMultiValueGetCount(phones) > 0) {
             CFStringRef number = (CFStringRef)ABMultiValueCopyValueAtIndex(phones, 0);
             if (number != NULL && CFStringGetLength(number) > 0) {
                 NSString *tempNumber = (NSString *)number;
