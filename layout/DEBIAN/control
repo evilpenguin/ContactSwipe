@@ -1,0 +1,9 @@
+Package: ch.emri.contactswipe
+Name: ContactSwipe
+Depends: mobilesubstrate
+Version: 0.3.0
+Architecture: iphoneos-arm
+Description: A tweak that enables swiping a contact to call (from the phones app)
+Maintainer: EvilPenguin (James Emrich)
+Author: EvilPenguin
+Section: Tweaks
